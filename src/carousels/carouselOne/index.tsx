@@ -3,8 +3,8 @@ import { getPopularMovies } from '../../services/apiFunctions';
 import { CarouselWrap, Item } from './style';
 
 type PropsItem = {
-   children: string;
-   width: number;
+   children?: string;
+   width?: string;
 }
 
 type PropsCarousel = {
@@ -13,8 +13,8 @@ type PropsCarousel = {
 
 export const CarouselItem = ({children, width} : PropsItem) => {
    return (
-      <Item width={"100px"}>
-
+      <Item width={width}>
+         {children}
       </Item>
    );
 }
@@ -29,7 +29,7 @@ export const Carousel = ({children}: PropsCarousel) => {
   return (  
       <CarouselWrap>
          <div className="inner" style={{transform: "translateX(0%)" }}>
-            {React.Children.map(children, (child, index) => {
+            {React.Children.map(children, (child : any, index) => {
                return React.cloneElement(child, {width: "100%"})
             })}
          </div>

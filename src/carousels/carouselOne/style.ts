@@ -17,12 +17,13 @@ type ItemProps = {
 
 export const Item = styled.div<ItemProps>`
     height: 200px;
-    /* width: 100%; */
+    width: ${props => props.width};
     display: inline-flex;
     align-items: center;
     justify-content: center;
     background-color: green;
     color: #fff;
+    background-color: #FF2E63;
 `;
 
 Item.defaultProps = {
