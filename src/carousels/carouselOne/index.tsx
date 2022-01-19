@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getPopularMovies } from '../../services/apiFunctions';
 import { CarouselWrap, Item, Controls } from './style';
+import { useSwipeable } from "react-swipeable";
 
 type PropsItem = {
    children?: string;
@@ -38,10 +39,15 @@ export const Carousel = ({children}: PropsCarousel) => {
       setActiveIndex(newIndex);
   }
 
+  const handlers = useSwipeable({
+      onSwipedLeft: () => updateIndex(activeIndex + 1),
+      onSwipedRight: () => updateIndex(activeIndex - 1)
+   });
+
   return (  
      <>
-      <CarouselWrap>
-         <div className="inner" style={{transform: `translateX(-${activeIndex * 100}%)` }}>
+      <CarouselWrap {...handlers}>
+         <div className="inner-container" style={{transform: `translateX(-${activeIndex * 100}%)` }}>
             {React.Children.map(children, (child : any, index) => {
                return React.cloneElement(child, {width: "100%"})
             })}
