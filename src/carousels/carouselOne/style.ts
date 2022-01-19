@@ -8,6 +8,11 @@ export const CarouselWrap = styled.div<TesteInterface>`
     /* display: flex; */
     overflow: hidden;
     border: 1px solid gray;
+
+    .inner {
+        white-space: nowrap;
+        transition: transform 0.3s;
+    }
 `;
 
 type ItemProps = {
@@ -21,9 +26,8 @@ export const Item = styled.div<ItemProps>`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: green;
-    color: #fff;
     background-color: #FF2E63;
+    color: #fff;
 `;
 
 Item.defaultProps = {
