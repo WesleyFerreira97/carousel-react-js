@@ -13,6 +13,8 @@ export const CarouselWrap = styled.div<TesteInterface>`
         white-space: nowrap;
         transition: transform 0.3s;
     }
+
+
 `;
 
 type ItemProps = {
@@ -33,3 +35,17 @@ export const Item = styled.div<ItemProps>`
 Item.defaultProps = {
     width: '100px',
 }
+
+export const Controls = styled.div`
+
+    button {
+        background-color: #303841;
+        color: #fff;
+        border: inherit;
+        padding: .75rem;
+    }
+
+    .active-slide {
+        background-color: #FF2E63;
+    }
+`;

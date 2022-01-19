@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getPopularMovies } from '../../services/apiFunctions';
-import { CarouselWrap, Item } from './style';
+import { CarouselWrap, Item, Controls } from './style';
 
 type PropsItem = {
    children?: string;
@@ -48,10 +48,22 @@ export const Carousel = ({children}: PropsCarousel) => {
          </div>
       </CarouselWrap>
 
-      <div className="indicators">
-         <button onClick={() => updateIndex(activeIndex - 1)}>{'> Prev'}</button>
-         <button onClick={() => updateIndex(activeIndex + 1)}>{'< Next'}</button>
-      </div>
+      <Controls>
+         <button onClick={() => updateIndex(activeIndex - 1)}>{'< Prev'}</button>
+         {React.Children.map(children, (child, index) => {
+            return (
+               <button 
+                  className={`${index === activeIndex ? "active-slide" : ""}`}
+                  onClick={() => {
+                     updateIndex(index);
+                  }}
+               >
+                  {index + 1}
+               </button>
+            )
+         })}
+         <button onClick={() => updateIndex(activeIndex + 1)}>{'Next >'}</button>
+      </Controls>
 
    </>
   );
