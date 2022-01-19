@@ -1,10 +1,14 @@
 import React from 'react';
-import { CarouselOne } from './carousels/carouselOne/index';
+import { Carousel, CarouselItem } from './carousels/carouselOne/index';
 
 function App() {
   return (
     <div className="App">
-      <CarouselOne />
+        <Carousel>
+           <CarouselItem>Item 1</CarouselItem>
+           <CarouselItem>Item 2</CarouselItem>
+           <CarouselItem>Item 3</CarouselItem>
+        </Carousel>
     </div>
   );
 }
