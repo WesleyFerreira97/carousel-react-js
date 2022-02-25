@@ -9,8 +9,4 @@ Este projeto tem como objetivo desenvolver alguns modelos de carousel utilizando
 - TypeScript
 - Styled Components 
 
-## Pré-requisitos
 
-Após fazer o clone do projeto você deverá criar um arquivo .env com a sua propria chave de acesso em uma variável de ambiente da api do TMDB https://www.themoviedb.org/
-
-Exemplo : REACT_APP_API_KEY=SUA_CHAVE_DE_ACESSO_AQUI
